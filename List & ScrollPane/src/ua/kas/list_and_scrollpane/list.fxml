@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.kas.list_and_scrollpane.ListViewController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" layoutX="85.0" layoutY="128.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ListView fx:id="listView" layoutX="-25.0" layoutY="50.0" onMouseClicked="#work" prefHeight="398.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.7727272727272727" layoutX="129.0" layoutY="53.0" orientation="VERTICAL" prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <SplitPane dividerPositions="0.6013289036544851" layoutY="97.0" orientation="VERTICAL" prefHeight="324.0" prefWidth="415.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <SplitPane dividerPositions="0.44525547445255476" layoutX="93.0" layoutY="5.0" prefHeight="170.0" prefWidth="413.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <items>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                   <children>
+                                                      <SplitPane dividerPositions="0.7011494252873564" layoutX="10.0" layoutY="22.0" orientation="VERTICAL" prefHeight="178.0" prefWidth="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <items>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                               <children>
+                                                                  <ImageView fx:id="imv_pic" fitHeight="120.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="36.0" prefWidth="178.0">
+                                                               <children>
+                                                                  <Button fx:id="photo" layoutX="119.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" />
+                                                                  <Label fx:id="l_rating" alignment="CENTER" layoutX="70.0" layoutY="12.0" prefHeight="25.0" prefWidth="19.0" textFill="RED">
+                                                                     <font>
+                                                                        <Font name="Times New Roman Bold" size="18.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label layoutX="17.0" layoutY="17.0" prefHeight="17.0" prefWidth="53.0" text="Рейтинг :" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </items>
+                                                      </SplitPane>
+                                                   </children></AnchorPane>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                   <children>
+                                                      <Label fx:id="l_name" alignment="BASELINE_CENTER" layoutX="-1.0" layoutY="8.0" prefHeight="59.0" prefWidth="225.0" wrapText="true">
+                                                         <font>
+                                                            <Font name="Times New Roman" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="l_address" layoutX="14.0" layoutY="69.0" prefHeight="38.0" prefWidth="198.0" textFill="#434141" wrapText="true">
+                                                         <font>
+                                                            <Font name="Times New Roman" size="12.0" />
+                                                         </font></Label>
+                                                      <Label fx:id="l_number" layoutX="13.0" layoutY="107.0" prefHeight="19.0" prefWidth="198.0">
+                                                         <font>
+                                                            <Font name="Times New Roman" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label fx:id="l_web" layoutX="13.0" layoutY="131.0" prefHeight="13.0" prefWidth="198.0" textFill="#5f2abc">
+                                                         <font>
+                                                            <Font name="Times New Roman" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                            </items>
+                                          </SplitPane>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="114.0" prefWidth="413.0">
+                                       <children>
+                                          <ScrollPane cacheShape="false" centerShape="false" focusTraversable="false" layoutX="35.0" layoutY="-41.0" prefHeight="117.0" prefWidth="413.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <content>
+                                                <ImageView fx:id="imv_map" fitHeight="354.0" fitWidth="545.0" pickOnBounds="true" smooth="false" />
+                                             </content>
+                                          </ScrollPane>
+                                       </children></AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
