@@ -41,7 +41,7 @@
                                                             </AnchorPane>
                                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="36.0" prefWidth="178.0">
                                                                <children>
-                                                                  <Button fx:id="photo" layoutX="119.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="45.0" />
+                                                                  <Button fx:id="photo" layoutX="119.0" layoutY="13.0" mnemonicParsing="false" onAction="#photo" prefHeight="25.0" prefWidth="45.0" />
                                                                   <Label fx:id="l_rating" alignment="CENTER" layoutX="70.0" layoutY="12.0" prefHeight="25.0" prefWidth="19.0" textFill="RED">
                                                                      <font>
                                                                         <Font name="Times New Roman Bold" size="18.0" />

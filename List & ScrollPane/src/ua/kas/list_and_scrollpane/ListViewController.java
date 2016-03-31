@@ -11,14 +11,19 @@ import javax.imageio.ImageIO;
 
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class ListViewController implements Initializable {
 
@@ -104,5 +109,13 @@ public class ListViewController implements Initializable {
 				message = "";
 			}
 		}
+	}
+	
+	public void photo(ActionEvent e) throws IOException{
+		Scene photo_scene = new Scene(FXMLLoader.load(getClass().getResource("Photo.fxml")));
+		photo_scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		Stage app_stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		app_stage.setScene(photo_scene);
+		app_stage.show();
 	}
 }
