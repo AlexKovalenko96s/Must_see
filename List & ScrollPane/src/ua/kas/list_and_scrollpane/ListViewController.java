@@ -41,16 +41,13 @@ public class ListViewController implements Initializable {
 	Label l_number;
 	@FXML
 	Label l_rating;
-	@FXML
-	private ListView<String> listView;
+	@FXML ListView<String> listView;
 	@FXML
 	Button photo;
 	static String message = "";
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-	
-		
 		
 		try {
 			Image imageDecline = new Image(getClass().getResourceAsStream("photo.png"));
@@ -78,7 +75,6 @@ public class ListViewController implements Initializable {
 
 		for (String m : movies) {
 			message = m;
-			System.out.println(message);
 
 			java.sql.PreparedStatement myStmt;
 			
@@ -106,7 +102,7 @@ public class ListViewController implements Initializable {
 				BufferedImage imag_map =ImageIO.read(new ByteArrayInputStream(imgData_map));
 				imv_pic.setImage(SwingFXUtils.toFXImage(imag_pic, null));
 				imv_map.setImage(SwingFXUtils.toFXImage(imag_map, null));
-				message = "";
+				//message = "";
 			}
 		}
 	}
