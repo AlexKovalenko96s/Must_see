@@ -31,6 +31,8 @@ public class ListViewController implements Initializable {
 	ImageView imv_pic;
 	@FXML 
 	ImageView imv_map;
+	@FXML 
+	Button like;
 	@FXML
 	Label l_name;
 	@FXML
@@ -42,9 +44,12 @@ public class ListViewController implements Initializable {
 	@FXML
 	Label l_rating;
 	@FXML ListView<String> listView;
+	@FXML ListView<String> comments;
 	@FXML
 	Button photo;
 	static String message = "";
+	String[] words;
+	int likes;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -59,10 +64,50 @@ public class ListViewController implements Initializable {
 			
 			while (myRs.next()) {
 				listView.getItems().addAll(myRs.getString("name"));
+
+
+//				System.out.print("string input > ");
+//				String line = new Scanner(System.in).nextLine();
+//				words = line.split("\\s+");
+//				System.out.println("Unsorted array: " + Arrays.toString(words));
+//				Arrays.sort(words);
+//				System.out.println("Sorted array: " + Arrays.toString(words));
+
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public void like(ActionEvent e) throws SQLException{		
+		
+		Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/freemove", "root", "root");
+		ResultSet myRs = null;
+		java.sql.PreparedStatement myStmt;
+		myStmt = myConn.prepareStatement("select * from must_see where name =?");	
+		myStmt.setString(1, message);
+		myRs = myStmt.executeQuery();
+		
+		while(myRs.next()){
+			likes = myRs.getInt("rating");
+			likes ++;
+		}	
+		
+		java.sql.PreparedStatement myStmtUPD = myConn
+				.prepareStatement("update must_see set rating=? where name=?");
+		myStmtUPD.setInt(1, likes);
+		myStmtUPD.setString(2, message);
+		myStmtUPD.executeUpdate();
+		
+		ResultSet myRs2 = null;
+		java.sql.PreparedStatement myStmt2;
+		myStmt2 = myConn.prepareStatement("select * from must_see where name =?");	
+		myStmt2.setString(1, message);
+		myRs2 = myStmt2.executeQuery();
+		
+		while(myRs2.next()){
+			like.setText(myRs2.getString("rating"));
 		}
 	}
 
@@ -92,7 +137,7 @@ public class ListViewController implements Initializable {
 				l_web.setText(myRs.getString("web"));
 				l_address.setText(myRs.getString("address"));
 				l_number.setText(myRs.getString("number"));
-				l_rating.setText(myRs.getString("rating"));
+				like.setText(myRs.getString("rating"));
 				
 				img_pic = myRs.getBlob("pic");
 				img_map = myRs.getBlob("map");
@@ -104,6 +149,19 @@ public class ListViewController implements Initializable {
 				imv_map.setImage(SwingFXUtils.toFXImage(imag_map, null));
 				//message = "";
 			}
+			
+			try{
+				System.out.println(message);
+				java.sql.PreparedStatement myStmtCom;
+				ResultSet myRsCom = null;
+				myStmtCom = myConn.prepareStatement("select * from comments where name =?");	
+				myStmtCom.setString(1, message);
+				myRsCom = myStmtCom.executeQuery();
+				
+				while (myRsCom.next()) {
+					comments.getItems().addAll("      " + myRsCom.getString("user_name")+"\n"+ myRsCom.getString("comment")+"\n"+"\n");
+				}
+			}catch(Exception ex){}
 		}
 	}
 	

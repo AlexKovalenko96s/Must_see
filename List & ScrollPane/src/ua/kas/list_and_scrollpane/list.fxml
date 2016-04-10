@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -42,12 +43,8 @@
                                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="36.0" prefWidth="178.0">
                                                                <children>
                                                                   <Button fx:id="photo" layoutX="119.0" layoutY="13.0" mnemonicParsing="false" onAction="#photo" prefHeight="25.0" prefWidth="45.0" />
-                                                                  <Label fx:id="l_rating" alignment="CENTER" layoutX="70.0" layoutY="12.0" prefHeight="25.0" prefWidth="19.0" textFill="RED">
-                                                                     <font>
-                                                                        <Font name="Times New Roman Bold" size="18.0" />
-                                                                     </font>
-                                                                  </Label>
                                                                   <Label layoutX="17.0" layoutY="17.0" prefHeight="17.0" prefWidth="53.0" text="Рейтинг :" />
+                                                                  <Button fx:id="like" layoutX="70.0" layoutY="12.0" mnemonicParsing="false" onAction="#like" prefHeight="25.0" prefWidth="38.0" />
                                                                </children>
                                                             </AnchorPane>
                                                         </items>
@@ -91,7 +88,13 @@
                                 </items>
                               </SplitPane>
                            </children></AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <ListView fx:id="comments" fixedCellSize="0.0" layoutX="-1.0" prefHeight="87.0" prefWidth="417.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ListView>
+                           </children></AnchorPane>
                     </items>
                   </SplitPane>
                </children>
