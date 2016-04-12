@@ -84,6 +84,8 @@ public class ListViewController implements Initializable {
 		
 		Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/freemove", "root", "root");
 		ResultSet myRs = null;
+		
+		
 		java.sql.PreparedStatement myStmt;
 		myStmt = myConn.prepareStatement("select * from must_see where name =?");	
 		myStmt.setString(1, message);
